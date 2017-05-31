@@ -3,18 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hi, there.</title>
+  <title>C# 02 类 Class | Hi, there.</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hi, there.">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="类 Class 特性与方法 Attributes and Methods 访问修饰符 Access Specifiers 参数传递机制 Mechanisms to Pass Parameters 静态 Static   构造函数与析构函数 Constructors and Destructors 属性 Properties     类 Class特性与方法 Attributes and Met">
+<meta name="keywords" content="C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C# 02 类 Class">
+<meta property="og:url" content="http://yoursite.com/2017/05-31/C#(02)类Class/index.html">
 <meta property="og:site_name" content="Hi, there.">
+<meta property="og:description" content="类 Class 特性与方法 Attributes and Methods 访问修饰符 Access Specifiers 参数传递机制 Mechanisms to Pass Parameters 静态 Static   构造函数与析构函数 Constructors and Destructors 属性 Properties     类 Class特性与方法 Attributes and Met">
+<meta property="og:image" content="http://yoursite.com/2017/05-31/pic/Access_Specifiers.png">
+<meta property="og:updated_time" content="2017-05-31T09:51:33.243Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hi, there.">
+<meta name="twitter:title" content="C# 02 类 Class">
+<meta name="twitter:description" content="类 Class 特性与方法 Attributes and Methods 访问修饰符 Access Specifiers 参数传递机制 Mechanisms to Pass Parameters 静态 Static   构造函数与析构函数 Constructors and Destructors 属性 Properties     类 Class特性与方法 Attributes and Met">
+<meta name="twitter:image" content="http://yoursite.com/2017/05-31/pic/Access_Specifiers.png">
   
     <link rel="alternative" href="/atom.xml" title="Hi, there." type="application/atom+xml">
   
@@ -160,97 +167,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-C#(03)变量Variables" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/05-31/C#(03)变量Variables/" class="article-date">
-  	<time datetime="2017-05-31T08:15:52.000Z" itemprop="datePublished">2017-05-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05-31/C#(03)变量Variables/">
-        C# 03 变量 Variables
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- TOC -->
-<ul>
-<li><a href="#变量-variables">变量 Variables</a><ul>
-<li><a href="#内存分配-memory-allocation">内存分配 Memory Allocation</a></li>
-<li><a href="#结构体-structures">结构体 Structures</a></li>
-<li><a href="#枚举集-enumerations">枚举集 Enumerations</a></li>
-<li><a href="#arrays">Arrays</a></li>
-<li><a href="#indexers">Indexers</a></li>
-<li><a href="#collections">Collections</a></li>
-<li><a href="#generics">Generics</a></li>
-</ul>
-</li>
-</ul>
-<!-- /TOC -->
-<h1 id="变量-Variables"><a href="#变量-Variables" class="headerlink" title="变量 Variables"></a>变量 Variables</h1><h2 id="内存分配-Memory-Allocation"><a href="#内存分配-Memory-Allocation" class="headerlink" title="内存分配 Memory Allocation"></a>内存分配 Memory Allocation</h2><ul>
-<li><p>Value Type:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> N1 = <span class="number">1</span>;</div><div class="line"><span class="keyword">int</span> N2 = N1;</div><div class="line">N1++;<span class="comment">//N1=2, N2=1;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>Reference Type:</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Car Ford = <span class="keyword">new</span> Car();</div><div class="line">Car Fuuuuu [= <span class="keyword">new</span> Car()];</div><div class="line">Fuuuuu = Ford;<span class="comment">//指向同一个空间</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="结构体-Structures"><a href="#结构体-Structures" class="headerlink" title="结构体 Structures"></a>结构体 Structures</h2><ul>
-<li>是值类型 Value types</li>
-<li>存储在堆中 Stack</li>
-<li>不支持继承 inheritance</li>
-<li>没有默认构造函数 cannot have default constructor<br>eg:<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">struct</span> example</div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> a;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">string</span> b;</div><div class="line">&#125;;</div><div class="line">...</div><div class="line">...Main...</div><div class="line">&#123;</div><div class="line">    example a = <span class="keyword">new</span> example();</div><div class="line">    a.a = <span class="number">10</span>;</div><div class="line">    a.b = <span class="string">"ABC"</span>;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="枚举集-Enumerations"><a href="#枚举集-Enumerations" class="headerlink" title="枚举集 Enumerations"></a>枚举集 Enumerations</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h2><h2 id="Indexers"><a href="#Indexers" class="headerlink" title="Indexers"></a>Indexers</h2><h2 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h2><h2 id="Generics"><a href="#Generics" class="headerlink" title="Generics"></a>Generics</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-C#(02)类Class" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-C#(02)类Class" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2017/05-31/C#(02)类Class/" class="article-date">
@@ -266,15 +183,25 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05-31/C#(02)类Class/">
-        C# 02 类 Class
-        
-      </a>
+    <h1 class="article-title" itemprop="name">
+      C# 02 类 Class
+      
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -376,116 +303,51 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05-31/C#(03)变量Variables/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          C# 03 变量 Variables
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05-31/C#(01)介绍Introduce/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C# 01 介绍 Introduce</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
 
-
-
-
-
-
-  
-    <article id="post-C#(01)介绍Introduce" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/05-31/C#(01)介绍Introduce/" class="article-date">
-  	<time datetime="2017-05-31T08:15:50.000Z" itemprop="datePublished">2017-05-31</time>
-</a>
+<div class="ds-share share" data-thread-key="C#(02)类Class" data-title="C# 02 类 Class" data-url="http://yoursite.com/2017/05-31/C#(02)类Class/"  data-images="./pic/%E5%A4%B4%E5%83%8F.png" data-content="C# 02 类 Class">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
     </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05-31/C#(01)介绍Introduce/">
-        C# 01 介绍 Introduce
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- TOC -->
-<ul>
-<li><a href="#基本-introduce">基本 Introduce</a><ul>
-<li><a href="#hello-world--io">Hello World &amp; i/o</a></li>
-<li><a href="#变量命名规则-naming-variables">变量命名规则 Naming Variables</a></li>
-<li><a href="#申明与初始化变量-declaring-and-initializing-variables">申明与初始化变量 Declaring and Initializing Variables</a></li>
-<li><a href="#动态数据类型-dynamic-data-type"><em>动态数据类型 </em>Dynamic Data Type</a></li>
-<li><a href="#类">类</a></li>
-</ul>
-</li>
-</ul>
-<!-- /TOC -->
-<h1 id="基本-Introduce"><a href="#基本-Introduce" class="headerlink" title="基本 Introduce"></a>基本 Introduce</h1><h2 id="Hello-World-amp-i-o"><a href="#Hello-World-amp-i-o" class="headerlink" title="Hello World &amp; i/o"></a>Hello World &amp; i/o</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> System</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Hello</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></div><div class="line">    &#123;</div><div class="line">        Console.WriteLine(<span class="string">"Hello World!\n"</span>);</div><div class="line">        <span class="keyword">int</span> a;</div><div class="line">        a = Convert.ToInt32(Console.ReadLine());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="变量命名规则-Naming-Variables"><a href="#变量命名规则-Naming-Variables" class="headerlink" title="变量命名规则 Naming Variables"></a>变量命名规则 Naming Variables</h2><ul>
-<li>字母或下划线开头且后面只含有数字字母下划线(“[A-Za-z<em>][0-9A-Za-z</em>]*”)</li>
-<li>不能是保留字符(keyword)(即 class, int, …)</li>
-</ul>
-<h2 id="申明与初始化变量-Declaring-and-Initializing-Variables"><a href="#申明与初始化变量-Declaring-and-Initializing-Variables" class="headerlink" title="申明与初始化变量 Declaring and Initializing Variables"></a>申明与初始化变量 Declaring and Initializing Variables</h2><pre><code>&lt;data_type&gt; &lt;variable_name&gt;=&lt;value&gt;
-</code></pre><h2 id="动态数据类型-Dynamic-Data-Type"><a href="#动态数据类型-Dynamic-Data-Type" class="headerlink" title="动态数据类型 Dynamic Data Type"></a><em>动态数据类型 </em>Dynamic Data Type</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dynamic</span> id;</div><div class="line">id = <span class="number">1</span>;</div><div class="line">id = <span class="string">"ABC"</span>;</div><div class="line"><span class="keyword">int</span> len = id.Length;</div></pre></td></tr></table></figure>
-<ul>
-<li>给动态变量赋值为什么类型，它就会有那个类型的属性和方法</li>
-<li>动态数据类型在编译时不会检查数据类型。即一下代码可以编译通过，但运行会出错：<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">dynamic</span> <span class="keyword">var</span> = <span class="number">1</span>;</div><div class="line"><span class="keyword">int</span> len = <span class="keyword">var</span>.Length;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">example</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> e1 = <span class="number">1</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display_e1</span>(<span class="params"></span>)</span></div><div class="line">    &#123;</div><div class="line">        Console.WriteLine(<span class="string">"e1="</span>+e1);</div><div class="line">        Console.WriteLine(<span class="string">"e1=&#123;0&#125;\ne1+1=&#123;1&#125;"</span>,e1,e1+<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<pre><code>example e = new example()
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
+ </div>
+ 
 
 
 
 
 
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -509,8 +371,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
