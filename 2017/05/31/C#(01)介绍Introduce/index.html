@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/31/C#(01)介绍Introduce/index.html">
 <meta property="og:site_name" content="Hi, there.">
 <meta property="og:description" content="基本 Introduce Hello World &amp;amp; i/o 变量命名规则 Naming Variables 申明与初始化变量 Declaring and Initializing Variables 动态数据类型 Dynamic Data Type 类     基本 IntroduceHello World &amp;amp; i/o1234567891011using Systempubl">
-<meta property="og:updated_time" content="2017-05-31T09:51:01.005Z">
+<meta property="og:updated_time" content="2017-05-31T23:48:46.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C# 01 介绍 Introduce">
 <meta name="twitter:description" content="基本 Introduce Hello World &amp;amp; i/o 变量命名规则 Naming Variables 申明与初始化变量 Declaring and Initializing Variables 动态数据类型 Dynamic Data Type 类     基本 IntroduceHello World &amp;amp; i/o1234567891011using Systempubl">
@@ -33,6 +33,10 @@
   <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
   <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 
+  
+      <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("your_app_id", "your_app_key");</script>
+<script src="/js/Counter.js"></script>
   
 </head>
 <body>
@@ -198,6 +202,16 @@
         
 
         
+          
+<div class="counter-tag counter">
+    <span id="/2017/05/31/C#(01)介绍Introduce/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="C# 01 介绍 Introduce">
+         &nbsp;
+        view
+    </span>
+</div>
+
+        
         <div class="clearfix"></div>
       </div>
       
@@ -218,7 +232,7 @@
 <!-- /TOC -->
 <h1 id="基本-Introduce"><a href="#基本-Introduce" class="headerlink" title="基本 Introduce"></a>基本 Introduce</h1><h2 id="Hello-World-amp-i-o"><a href="#Hello-World-amp-i-o" class="headerlink" title="Hello World &amp; i/o"></a>Hello World &amp; i/o</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> System</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Hello</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></div><div class="line">    &#123;</div><div class="line">        Console.WriteLine(<span class="string">"Hello World!\n"</span>);</div><div class="line">        <span class="keyword">int</span> a;</div><div class="line">        a = Convert.ToInt32(Console.ReadLine());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="变量命名规则-Naming-Variables"><a href="#变量命名规则-Naming-Variables" class="headerlink" title="变量命名规则 Naming Variables"></a>变量命名规则 Naming Variables</h2><ul>
-<li>字母或下划线开头且后面只含有数字字母下划线(“[A-Za-z<em>][0-9A-Za-z</em>]*”)</li>
+<li>字母或下划线开头且后面只含有数字字母下划线(“[A-Za-z_][0-9A-Za-z_]*”)</li>
 <li>不能是保留字符(keyword)(即 class, int, …)</li>
 </ul>
 <h2 id="申明与初始化变量-Declaring-and-Initializing-Variables"><a href="#申明与初始化变量-Declaring-and-Initializing-Variables" class="headerlink" title="申明与初始化变量 Declaring and Initializing Variables"></a>申明与初始化变量 Declaring and Initializing Variables</h2><pre><code>&lt;data_type&gt; &lt;variable_name&gt;=&lt;value&gt;

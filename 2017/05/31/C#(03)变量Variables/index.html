@@ -9,17 +9,17 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="变量 Variables 内存分配 Memory Allocation 结构体 Structures 枚举集 Enumerations Arrays Indexers Collections Generics     变量 Variables内存分配 Memory Allocation Value Type: 123int N1 = 1;int N2 = N1;N1++;//N1=2, N2=">
+  <meta name="description" content="变量 Variables 内存分配 Memory Allocation 结构体 Structures 枚举集 Enumerations 数组 Arrays 数组初始化与赋值 Initializing ans Assigning Values to Array 数组操作 Manipulating Array Elements 参数数组 Param Arrays 多维数组 Multidimensi">
 <meta name="keywords" content="C#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C# 03 变量 Variables">
 <meta property="og:url" content="http://yoursite.com/2017/05/31/C#(03)变量Variables/index.html">
 <meta property="og:site_name" content="Hi, there.">
-<meta property="og:description" content="变量 Variables 内存分配 Memory Allocation 结构体 Structures 枚举集 Enumerations Arrays Indexers Collections Generics     变量 Variables内存分配 Memory Allocation Value Type: 123int N1 = 1;int N2 = N1;N1++;//N1=2, N2=">
-<meta property="og:updated_time" content="2017-05-31T09:51:18.190Z">
+<meta property="og:description" content="变量 Variables 内存分配 Memory Allocation 结构体 Structures 枚举集 Enumerations 数组 Arrays 数组初始化与赋值 Initializing ans Assigning Values to Array 数组操作 Manipulating Array Elements 参数数组 Param Arrays 多维数组 Multidimensi">
+<meta property="og:updated_time" content="2017-06-01T01:30:03.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C# 03 变量 Variables">
-<meta name="twitter:description" content="变量 Variables 内存分配 Memory Allocation 结构体 Structures 枚举集 Enumerations Arrays Indexers Collections Generics     变量 Variables内存分配 Memory Allocation Value Type: 123int N1 = 1;int N2 = N1;N1++;//N1=2, N2=">
+<meta name="twitter:description" content="变量 Variables 内存分配 Memory Allocation 结构体 Structures 枚举集 Enumerations 数组 Arrays 数组初始化与赋值 Initializing ans Assigning Values to Array 数组操作 Manipulating Array Elements 参数数组 Param Arrays 多维数组 Multidimensi">
   
     <link rel="alternative" href="/atom.xml" title="Hi, there." type="application/atom+xml">
   
@@ -33,6 +33,10 @@
   <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
   <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 
+  
+      <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("your_app_id", "your_app_key");</script>
+<script src="/js/Counter.js"></script>
   
 </head>
 <body>
@@ -198,6 +202,16 @@
         
 
         
+          
+<div class="counter-tag counter">
+    <span id="/2017/05/31/C#(03)变量Variables/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="C# 03 变量 Variables">
+         &nbsp;
+        view
+    </span>
+</div>
+
+        
         <div class="clearfix"></div>
       </div>
       
@@ -210,7 +224,14 @@
 <li><a href="#内存分配-memory-allocation">内存分配 Memory Allocation</a></li>
 <li><a href="#结构体-structures">结构体 Structures</a></li>
 <li><a href="#枚举集-enumerations">枚举集 Enumerations</a></li>
-<li><a href="#arrays">Arrays</a></li>
+<li><a href="#数组-arrays">数组 Arrays</a><ul>
+<li><a href="#数组初始化与赋值-initializing-ans-assigning-values-to-array">数组初始化与赋值 Initializing ans Assigning Values to Array</a></li>
+<li><a href="#数组操作-manipulating-array-elements">数组操作 Manipulating Array Elements</a></li>
+<li><a href="#参数数组-param-arrays">参数数组 Param Arrays</a></li>
+<li><a href="#多维数组-multidimensional-arrays">多维数组 Multidimensional Arrays</a></li>
+<li><a href="#属性与方法-properties-and-methords">属性与方法 Properties and Methords</a></li>
+</ul>
+</li>
 <li><a href="#indexers">Indexers</a></li>
 <li><a href="#collections">Collections</a></li>
 <li><a href="#generics">Generics</a></li>
@@ -230,11 +251,72 @@
 <li>是值类型 Value types</li>
 <li>存储在堆中 Stack</li>
 <li>不支持继承 inheritance</li>
-<li>没有默认构造函数 cannot have default constructor<br>eg:<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">struct</span> example</div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> a;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">string</span> b;</div><div class="line">&#125;;</div><div class="line">...</div><div class="line">...Main...</div><div class="line">&#123;</div><div class="line">    example a = <span class="keyword">new</span> example();</div><div class="line">    a.a = <span class="number">10</span>;</div><div class="line">    a.b = <span class="string">"ABC"</span>;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<li>没有默认构造函数 cannot have default constructor<br>eg:</li>
 </ul>
-<h2 id="枚举集-Enumerations"><a href="#枚举集-Enumerations" class="headerlink" title="枚举集 Enumerations"></a>枚举集 Enumerations</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h2><h2 id="Indexers"><a href="#Indexers" class="headerlink" title="Indexers"></a>Indexers</h2><h2 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h2><h2 id="Generics"><a href="#Generics" class="headerlink" title="Generics"></a>Generics</h2>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">struct</span> example</div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> a;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">string</span> b;</div><div class="line">&#125;;</div><div class="line">...</div><div class="line">...Main...</div><div class="line">&#123;</div><div class="line">    example a = <span class="keyword">new</span> example();</div><div class="line">    a.a = <span class="number">10</span>;</div><div class="line">    a.b = <span class="string">"ABC"</span>;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="枚举集-Enumerations"><a href="#枚举集-Enumerations" class="headerlink" title="枚举集 Enumerations"></a>枚举集 Enumerations</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> &lt;enumeration_name&gt; &#123;..., ...&#125;;</div></pre></td></tr></table></figure>
+<h2 id="数组-Arrays"><a href="#数组-Arrays" class="headerlink" title="数组 Arrays"></a>数组 Arrays</h2><h3 id="数组初始化与赋值-Initializing-ans-Assigning-Values-to-Array"><a href="#数组初始化与赋值-Initializing-ans-Assigning-Values-to-Array" class="headerlink" title="数组初始化与赋值 Initializing ans Assigning Values to Array"></a>数组初始化与赋值 Initializing ans Assigning Values to Array</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;data_type&gt;[] &lt;array_name&gt;</div></pre></td></tr></table></figure>
+<p>eg:<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>[] Score;</div><div class="line">Score = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</div><div class="line"><span class="keyword">int</span>[] Score1 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</div><div class="line">Score1[<span class="number">0</span>] = <span class="number">5</span>;</div><div class="line"><span class="keyword">int</span>[] Score2 = &#123;<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>&#125;;</div><div class="line"><span class="keyword">int</span>[] Score3 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>] &#123;<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="数组操作-Manipulating-Array-Elements"><a href="#数组操作-Manipulating-Array-Elements" class="headerlink" title="数组操作 Manipulating Array Elements"></a>数组操作 Manipulating Array Elements</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">Str = Console.ReadLine().ToCharArray(); <span class="comment">//输入  ToCharArray():string-&gt;char[]</span></div><div class="line"><span class="keyword">foreach</span>(c <span class="keyword">in</span> Str)<span class="comment">//对Str中每一个元素进行循环</span></div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="参数数组-Param-Arrays"><a href="#参数数组-Param-Arrays" class="headerlink" title="参数数组 Param Arrays"></a>参数数组 Param Arrays</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;access_specifier&gt; &lt;return_type&gt; &lt;function_name&gt;(Param &lt;data_type&gt;[] &lt;array_name&gt;)</div></pre></td></tr></table></figure>
+<p>eg:<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">example</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span>(<span class="params">param <span class="keyword">int</span>[] List</span>)</span></div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">...</div><div class="line">example a = <span class="keyword">new</span> example();</div><div class="line"><span class="keyword">int</span> sum = a.sum(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="多维数组-Multidimensional-Arrays"><a href="#多维数组-Multidimensional-Arrays" class="headerlink" title="多维数组 Multidimensional Arrays"></a>多维数组 Multidimensional Arrays</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>[,] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>,<span class="number">4</span>]&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,</div><div class="line">                        &#123;<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;&#125;;</div></pre></td></tr></table></figure>
+<h3 id="属性与方法-Properties-and-Methords"><a href="#属性与方法-Properties-and-Methords" class="headerlink" title="属性与方法 Properties and Methords"></a>属性与方法 Properties and Methords</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Property</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Length</td>
+<td>返回元素个数</td>
+</tr>
+<tr>
+<td style="text-align:center">Rank</td>
+<td>返回数组维度</td>
+</tr>
+<tr>
+<td style="text-align:center">IsFixedSize</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">IsReadonly</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Methord</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Sort</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Clear</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">GetLength</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">GetValue</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">IndexOf</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Indexers"><a href="#Indexers" class="headerlink" title="Indexers"></a>Indexers</h2><h2 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h2><h2 id="Generics"><a href="#Generics" class="headerlink" title="Generics"></a>Generics</h2>
       
     </div>
     
