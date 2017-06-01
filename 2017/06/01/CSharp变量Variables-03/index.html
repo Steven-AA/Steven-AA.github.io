@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSharp变量Variables_03 | Hi, there.</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="变量 Variables 内存分配 Memory Allocation 结构体 Structures 枚举集 Enumerations 数组 Arrays 数组初始化与赋值 Initializing ans Assigning Values to Array 数组操作 Manipulating Array Elements 参数数组 Param Arrays 多维数组 Multidimensi">
+<meta name="keywords" content="CSharp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSharp变量Variables_03">
+<meta property="og:url" content="http://yoursite.com/2017/06/01/CSharp变量Variables-03/index.html">
+<meta property="og:site_name" content="Hi, there.">
+<meta property="og:description" content="变量 Variables 内存分配 Memory Allocation 结构体 Structures 枚举集 Enumerations 数组 Arrays 数组初始化与赋值 Initializing ans Assigning Values to Array 数组操作 Manipulating Array Elements 参数数组 Param Arrays 多维数组 Multidimensi">
+<meta property="og:updated_time" content="2017-06-01T08:42:10.745Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSharp变量Variables_03">
+<meta name="twitter:description" content="变量 Variables 内存分配 Memory Allocation 结构体 Structures 枚举集 Enumerations 数组 Arrays 数组初始化与赋值 Initializing ans Assigning Values to Array 数组操作 Manipulating Array Elements 参数数组 Param Arrays 多维数组 Multidimensi">
+  
+    <link rel="alternative" href="/atom.xml" title="Hi, there." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="./pic/%E5%A4%B4%E5%83%8F.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+      <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("your_app_id", "your_app_key");</script>
+<script src="/js/Counter.js"></script>
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="./pic/%E5%A4%B4%E5%83%8F.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Steven Zhang</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Steven Zhang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="./pic/%E5%A4%B4%E5%83%8F.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Steven Zhang</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-CSharp变量Variables-03" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/01/CSharp变量Variables-03/" class="article-date">
+  	<time datetime="2017-06-01T08:41:18.000Z" itemprop="datePublished">2017-06-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSharp变量Variables_03
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSharp/">CSharp</a></li></ul>
+	</div>
+
+        
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2017/06/01/CSharp变量Variables-03/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="CSharp变量Variables_03">
+         &nbsp;
+        view
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- TOC -->
+<ul>
+<li><a href="#变量-variables">变量 Variables</a><ul>
+<li><a href="#内存分配-memory-allocation">内存分配 Memory Allocation</a></li>
+<li><a href="#结构体-structures">结构体 Structures</a></li>
+<li><a href="#枚举集-enumerations">枚举集 Enumerations</a></li>
+<li><a href="#数组-arrays">数组 Arrays</a><ul>
+<li><a href="#数组初始化与赋值-initializing-ans-assigning-values-to-array">数组初始化与赋值 Initializing ans Assigning Values to Array</a></li>
+<li><a href="#数组操作-manipulating-array-elements">数组操作 Manipulating Array Elements</a></li>
+<li><a href="#参数数组-param-arrays">参数数组 Param Arrays</a></li>
+<li><a href="#多维数组-multidimensional-arrays">多维数组 Multidimensional Arrays</a></li>
+<li><a href="#属性与方法-properties-and-methords">属性与方法 Properties and Methords</a></li>
+</ul>
+</li>
+<li><a href="#索引-indexers">索引 Indexers</a></li>
+<li><a href="#集合-collections">集合 Collections</a><ul>
+<li><a href="#arraylist">ArrayList</a></li>
+</ul>
+</li>
+<li><a href="#泛型-generics">泛型 Generics</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="变量-Variables"><a href="#变量-Variables" class="headerlink" title="变量 Variables"></a>变量 Variables</h1><h2 id="内存分配-Memory-Allocation"><a href="#内存分配-Memory-Allocation" class="headerlink" title="内存分配 Memory Allocation"></a>内存分配 Memory Allocation</h2><ul>
+<li><p>Value Type:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> N1 = <span class="number">1</span>;</div><div class="line"><span class="keyword">int</span> N2 = N1;</div><div class="line">N1++;<span class="comment">//N1=2, N2=1;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Reference Type:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Car Ford = <span class="keyword">new</span> Car();</div><div class="line">Car Fuuuuu [= <span class="keyword">new</span> Car()];</div><div class="line">Fuuuuu = Ford;<span class="comment">//指向同一个空间</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="结构体-Structures"><a href="#结构体-Structures" class="headerlink" title="结构体 Structures"></a>结构体 Structures</h2><ul>
+<li>是值类型 Value types</li>
+<li>存储在堆中 Stack</li>
+<li>不支持继承 inheritance</li>
+<li>没有默认构造函数 cannot have default constructor<br>eg:</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">struct</span> example</div><div class="line">&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> a;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">string</span> b;</div><div class="line">&#125;;</div><div class="line">...</div><div class="line">...Main...</div><div class="line">&#123;</div><div class="line">    example a = <span class="keyword">new</span> example();</div><div class="line">    a.a = <span class="number">10</span>;</div><div class="line">    a.b = <span class="string">"ABC"</span>;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="枚举集-Enumerations"><a href="#枚举集-Enumerations" class="headerlink" title="枚举集 Enumerations"></a>枚举集 Enumerations</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> &lt;enumeration_name&gt; &#123;..., ...&#125;;</div></pre></td></tr></table></figure>
+<h2 id="数组-Arrays"><a href="#数组-Arrays" class="headerlink" title="数组 Arrays"></a>数组 Arrays</h2><h3 id="数组初始化与赋值-Initializing-ans-Assigning-Values-to-Array"><a href="#数组初始化与赋值-Initializing-ans-Assigning-Values-to-Array" class="headerlink" title="数组初始化与赋值 Initializing ans Assigning Values to Array"></a>数组初始化与赋值 Initializing ans Assigning Values to Array</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;data_type&gt;[] &lt;array_name&gt;</div></pre></td></tr></table></figure>
+<p>eg:<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>[] Score;</div><div class="line">Score = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</div><div class="line"><span class="keyword">int</span>[] Score1 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</div><div class="line">Score1[<span class="number">0</span>] = <span class="number">5</span>;</div><div class="line"><span class="keyword">int</span>[] Score2 = &#123;<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>&#125;;</div><div class="line"><span class="keyword">int</span>[] Score3 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>] &#123;<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="数组操作-Manipulating-Array-Elements"><a href="#数组操作-Manipulating-Array-Elements" class="headerlink" title="数组操作 Manipulating Array Elements"></a>数组操作 Manipulating Array Elements</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">Str = Console.ReadLine().ToCharArray(); <span class="comment">//输入  ToCharArray():string-&gt;char[]</span></div><div class="line"><span class="keyword">foreach</span>(c <span class="keyword">in</span> Str)<span class="comment">//对Str中每一个元素进行循环</span></div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="参数数组-Param-Arrays"><a href="#参数数组-Param-Arrays" class="headerlink" title="参数数组 Param Arrays"></a>参数数组 Param Arrays</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;access_specifier&gt; &lt;return_type&gt; &lt;function_name&gt;(Param &lt;data_type&gt;[] &lt;array_name&gt;)</div></pre></td></tr></table></figure>
+<p>eg:<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">example</span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span>(<span class="params">param <span class="keyword">int</span>[] List</span>)</span></div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">...</div><div class="line">example a = <span class="keyword">new</span> example();</div><div class="line"><span class="keyword">int</span> sum = a.sum(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="多维数组-Multidimensional-Arrays"><a href="#多维数组-Multidimensional-Arrays" class="headerlink" title="多维数组 Multidimensional Arrays"></a>多维数组 Multidimensional Arrays</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>[,] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>,<span class="number">4</span>]&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,</div><div class="line">                        &#123;<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;&#125;;</div></pre></td></tr></table></figure>
+<h3 id="属性与方法-Properties-and-Methords"><a href="#属性与方法-Properties-and-Methords" class="headerlink" title="属性与方法 Properties and Methords"></a>属性与方法 Properties and Methords</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">Property</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Length</td>
+<td>返回元素个数</td>
+</tr>
+<tr>
+<td style="text-align:center">Rank</td>
+<td>返回数组维度</td>
+</tr>
+<tr>
+<td style="text-align:center">IsFixedSize</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">IsReadonly</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Methord</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Sort</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Clear</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">GetLength</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">GetValue</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">IndexOf</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<h2 id="索引-Indexers"><a href="#索引-Indexers" class="headerlink" title="索引 Indexers"></a>索引 Indexers</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> <span class="title">example</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">string</span>[] name = <span class="keyword">new</span> <span class="keyword">string</span>[<span class="number">5</span>];</div><div class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="keyword">this</span> [<span class="keyword">int</span> index]</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">get</span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span> name[index];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">set</span></div><div class="line">        &#123;</div><div class="line">            name[index] = <span class="keyword">value</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="集合-Collections"><a href="#集合-Collections" class="headerlink" title="集合 Collections"></a>集合 Collections</h2><table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ArryList</td>
+<td>use index</td>
+</tr>
+<tr>
+<td>Queue</td>
+<td>队列 先进先出</td>
+</tr>
+<tr>
+<td>Stack</td>
+<td>栈   先进后出</td>
+</tr>
+<tr>
+<td>Hashtable</td>
+<td>哈希表 key-value</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ArrayList list = <span class="keyword">new</span> ArryList();</div><div class="line">list.<span class="keyword">add</span>(<span class="string">"a"</span>);</div><div class="line">list.<span class="keyword">add</span>(<span class="string">"b"</span>);</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Methord</th>
+<th>Use</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Add()</td>
+<td>在结尾添加</td>
+<td>list.add(“a”);</td>
+</tr>
+<tr>
+<td style="text-align:left">Remove()</td>
+<td>删除第一个匹配的对象</td>
+<td>list.remove(“a”);</td>
+</tr>
+<tr>
+<td style="text-align:left">Insert()</td>
+<td>插入</td>
+<td>list.Insert(1,”c”);</td>
+</tr>
+<tr>
+<td style="text-align:left">Sort()</td>
+<td>排序 升序</td>
+<td>list.Sort()</td>
+</tr>
+<tr>
+<td style="text-align:left">Reverse()</td>
+<td>逆序</td>
+<td>list.Reverse()</td>
+</tr>
+<tr>
+<td style="text-align:left">Clear()</td>
+<td>清空</td>
+<td>list.Clear()</td>
+</tr>
+<tr>
+<td style="text-align:left">TrimToSize()</td>
+<td><a href="http://www.cnblogs.com/sipher/articles/2429812.html" target="_blank" rel="external">删除预申请的空间</a></td>
+<td>list.TrimToSize()</td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://www.tuicool.com/articles/2aAbEfZ" target="_blank" rel="external">参考资料</a></p>
+<h2 id="泛型-Generics"><a href="#泛型-Generics" class="headerlink" title="泛型 Generics"></a>泛型 Generics</h2><p>和c++的模版一样的，扔个<a href="https://msdn.microsoft.com/en-us/library/ms379564(v=vs.80" target="_blank" rel="external">例子</a>.aspx)<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class Stack&lt;T&gt;</div><div class="line">&#123;</div><div class="line">   T[] m_Items;</div><div class="line">   public void Push(T item)</div><div class="line">   &#123;...&#125;</div><div class="line">   public T Pop()</div><div class="line">   &#123;...&#125;</div><div class="line">&#125;</div><div class="line">Stack&lt;int&gt; stack = new Stack&lt;int&gt;();</div><div class="line">stack.Push(1);</div><div class="line">stack.Push(2);</div><div class="line">int number = stack.Pop();</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/31/CSharp类Class-02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSharp类Class_02</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="CSharp变量Variables-03" data-title="CSharp变量Variables_03" data-url="http://yoursite.com/2017/06/01/CSharp变量Variables-03/"  data-images="./pic/%E5%A4%B4%E5%83%8F.png" data-content="CSharp变量Variables_03">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 Steven Zhang
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
