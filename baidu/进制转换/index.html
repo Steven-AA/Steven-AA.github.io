@@ -8,15 +8,15 @@
         {
             var number = ""
             number = parseFloat(document.getElementsByName("number")[0].value)
-            document.getElementsByName("output")[0].value = number
+            document.getElementsByName("output")[0].value = number.toString(2)
         }
     </script>
     <body>
         <h1>
-            hello world
+            进制转换
         </h1>
         <input type="text" name = "number"/>
-        <input type="button" name = "y" value="转换" onclick="print()"/>
+        <input type="button" name = "y" value="10进制转换成2进制" onclick="print()"/>
         <input type="text" name = "output"/>
     </body>
 </head>
