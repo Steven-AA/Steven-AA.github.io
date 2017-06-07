@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
+<style type="text/css">
+body{
+    color:aliceblue;
+    font-size: 40px;
+    text-align: center;
+}
+input{
+    width:300px;
+    height:50px;
+}
+</style>
 <head>
     <meta charset = "utf-8">
     <title>进制转换</title>
     <script type="text/javascript">
-        function print()
+        function print(num)
         {
-            var number = ""
-            number = parseFloat(document.getElementsByName("number")[0].value)
-            document.getElementsByName("output")[0].value = number.toString(2)
+            num = parseFloat(document.getElementsByName(num)[0].value)
+            document.getElementsByName("output")[0].value = num.toString(2)
         }
     </script>
-    <body>
-        <h1>
-            进制转换
-        </h1>
-        <input type="text" name = "number"/>
-        <input type="button" name = "y" value="10进制转换成2进制" onclick="print()"/>
-        <input type="text" name = "output"/>
+    <body style="background-color:black">
+        <div>
+            <h1>
+                进制转换
+            </h1>
+            <input type="text" name = "number"/>
+            <input type="button" name = "y" value="10进制转换成2进制" onclick="print('number')" />
+            <input type="text" name = "output"/>
+        </div>
     </body>
 </head>
 </html>
