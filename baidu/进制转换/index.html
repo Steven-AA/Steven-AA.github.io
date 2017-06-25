@@ -2,8 +2,8 @@
 <html>
 <style type="text/css">
 body{
-    color:aliceblue;
-    font-size: 40px;
+    color:black;
+    font-size: 20px;
     text-align: center;
 }
 input{
@@ -13,7 +13,7 @@ input{
 </style>
 <head>
     <meta charset = "utf-8">
-    <title>进制转换</title>
+    <title style="font-size:40px">进制转换</title>
     <script type="text/javascript">
         function print(num)
         {
@@ -21,15 +21,29 @@ input{
             document.getElementsByName("output")[0].value = num.toString(2)
         }
     </script>
-    <body style="background-color:black">
+    <body style="background-color:black" id = "abcde">
+        <!--<div>
+            <canvas id="cvs"></canvas>
+            <script src = "coderain.js"></script>
+            <script src = "background.js"></script>
+        </div>-->
         <div>
             <h1>
                 进制转换
             </h1>
             <input type="text" name = "number"/>
-            <input type="button" name = "y" value="10进制转换成2进制" onclick="print('number')" />
+            <input style="width: 150px" type="button" name = "y" value="10进制转换成2进制" onclick="print('number')"/>
             <input type="text" name = "output"/>
         </div>
+        <script data-require-id="abcde" src="blackhole.js" async=""></script>
+        <canvas id="cvs"></canvas>
+        <script src = "coderain.js"></script>
+        <script src = "coderain.js"></script>
+        <script src = "coderain.js"></script>
+        <script src = "coderain.js"></script>
+        <script src = "coderain.js"></script>
+        <!--<script src = "background.js"></script>-->
+        
     </body>
 </head>
 </html>
