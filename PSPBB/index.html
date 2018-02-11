@@ -8,7 +8,7 @@
     <title>基本地图展示</title>
     <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css" />
     <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
-    <script src="http://webapi.amap.com/maps?v=1.4.4&key=e60ff7dcf6ec5d7b1c14b4f68f2f2be6"></script>
+    <script src="http://webapi.amap.com/maps?v=1.4.4&key=e60ff7dcf6ec5d7b1c14b4f68f2f2be6&plugin=AMap.Autocomplete&plugin=AMap.Walking"></script>
     <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
 </head>
 
@@ -38,12 +38,50 @@
             </td>
             <td>
                 <div id="container"></div>
+                <div id="myPageTop">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>按关键字搜索：</label>
+                            </td>
+                            <td class="column2">
+                                <label>左击获取经纬度：</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="请输入关键字进行搜索" id="tipinput">
+                            </td>
+                            <td class="column2">
+                                <input type="text" readonly="true" id="lnglat">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 <script>
                     var map = new AMap.Map('container', {
                         resizeEnable: true,
-                        zoom: 11,
-                        center: [116.397428, 39.90923]
+                        zoom: 15,
+                        center: [118.931142, 32.113595]
                     });
+                    var clickEventListener = map.on('click', function (e) {
+                        document.getElementById("lnglat").value = e.lnglat.getLng() + ',' + e.lnglat.getLat()
+                    });
+                    var auto = new AMap.Autocomplete({
+                        input: "tipinput"
+                    });
+                    AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
+                    function select(e) {
+                        if (e.poi && e.poi.location) {
+                            map.setZoom(15);
+                            map.setCenter(e.poi.location);
+                        }
+                    }
+                    var walking = new AMap.Walking({
+                        map: map,
+                    });
+                    //根据起终点坐标规划步行路线
+                    walking.search([118.927437, 32.119242], [118.9313, 32.105411]);
                 </script>
             </td>
         </tr>
@@ -64,10 +102,15 @@
         text-align: center;
         font-size: 30px;
         z-index: 10;
+        height: 40px;
+    }
+
+    #myPageTop {
+        margin: 40px 0px 0px 0px;
     }
 
     #container {
-        margin: 35px 0% 0% 10%;
+        margin: 40px 0% 0% 10%;
         width: 90%;
         height: 95%;
         z-index: 0;
