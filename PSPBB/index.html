@@ -10,11 +10,12 @@
     <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
     <script src="http://webapi.amap.com/maps?v=1.4.4&key=e60ff7dcf6ec5d7b1c14b4f68f2f2be6&plugin=AMap.Autocomplete&plugin=AMap.Walking"></script>
     <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <!-- <script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script> -->
 </head>
 
 <body>
     <table>
-        <tr id='header'>
+        <tr>
             <div id='header'>
                 PSPBB
             </div>
@@ -24,12 +25,12 @@
                 <div id='menu'>
                     <table>
                         <tr>
-                            <td id='menu_item'>
-                                位置查询
+                            <td class='menu_item'>
+                                <input class='menu_button' type="button" onclick="pos_q()" value="位置查询">
                             </td>
                         </tr>
                         <tr>
-                            <td id='menu_item'>
+                            <td class='menu_item'>
                                 轨迹查询
                             </td>
                         </tr>
@@ -70,18 +71,31 @@
                     var auto = new AMap.Autocomplete({
                         input: "tipinput"
                     });
-                    AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
+                    AMap.event.addListener(auto, "select", select);
                     function select(e) {
                         if (e.poi && e.poi.location) {
                             map.setZoom(15);
                             map.setCenter(e.poi.location);
                         }
-                    }
-                    var walking = new AMap.Walking({
-                        map: map,
-                    });
-                    //根据起终点坐标规划步行路线
-                    walking.search([118.927437, 32.119242], [118.9313, 32.105411]);
+                    };
+                    function addMarker(pos) {
+                        marker = new AMap.Marker({
+                            icon: "http://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
+                            position: pos
+                        });
+                        marker.setMap(map);
+                    };
+                    function pos_q() {
+                        var code = prompt("请输入设备编号", "BD00001")
+                        if (code != null && code != "") {
+                            addMarker([118.933134, 32.11091])
+                        }
+                    };
+                    // var walking = new AMap.Walking({
+                    //     map: map,
+                    // });
+                    // //根据起终点坐标规划步行路线
+                    // walking.search([118.927437, 32.119242], [118.9313, 32.105411]);
                 </script>
             </td>
         </tr>
@@ -121,12 +135,32 @@
         width: 200px;
     }
 
-    #menu_item {
+    .menu_item {
         height: 40px;
         color: white;
-        font-size: 20;
+        font-size: 20px;
         text-align: center;
         font-weight: bold;
+    }
+
+    .menu_button {
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
+        height: 40px;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .marker {
+        color: #ff6600;
+        padding: 4px 10px;
+        border: 1px solid #fff;
+        white-space: nowrap;
+        font-size: 12px;
+        font-family: "";
+        background-color: #0066ff;
     }
 </style>
 
