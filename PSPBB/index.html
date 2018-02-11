@@ -2,20 +2,89 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>基本地图展示</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css" />
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="http://webapi.amap.com/maps?v=1.4.4&key=e60ff7dcf6ec5d7b1c14b4f68f2f2be6"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
 </head>
 
 <body>
-    <frameset rows="5%,90%">
-        <frame src="/head.html">
-            <frameset cols="25%,75%">
-                <frame src="/menu.html">
-                    <frame src="/map.html">
-            </frameset>
-    </frameset>
+    <table>
+        <tr id='header'>
+            <div id='header'>
+                PSPBB
+            </div>
+        </tr>
+        <tr>
+            <td>
+                <div id='menu'>
+                    <table>
+                        <tr>
+                            <td id='menu_item'>
+                                位置查询
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id='menu_item'>
+                                轨迹查询
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div id="container"></div>
+                <script>
+                    var map = new AMap.Map('container', {
+                        resizeEnable: true,
+                        zoom: 11,
+                        center: [116.397428, 39.90923]
+                    });
+                </script>
+            </td>
+        </tr>
+    </table>
 </body>
+<style>
+    td {
+        text-align: center;
+    }
+
+    body {
+        background-color: gray;
+    }
+
+    #header {
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+        z-index: 10;
+    }
+
+    #container {
+        margin: 35px 0% 0% 10%;
+        width: 90%;
+        height: 95%;
+        z-index: 0;
+    }
+
+    #menu {
+        margin: 0% 0% 0% 0%;
+        width: 200px;
+    }
+
+    #menu_item {
+        height: 40px;
+        color: white;
+        font-size: 20;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
 
 </html>
