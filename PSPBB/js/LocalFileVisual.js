@@ -45,11 +45,15 @@ function F_Reader(val) {
             reader.onload = function () {
                 var array = this.result.split("\n");
                 for (var i = 1; i < array.length; i++) {  //i=0是列名
-                    var strarr = String(array[i]).split("\",\"");
+                    // var strarr = String(array[i]).split("\",\"");
+                    var strarr = String(array[i]).split(",");
                     heatmapData.push({
-                        "lng": parseFloat(String(strarr[0]).slice(1, )),
+                        // "lng": parseFloat(String(strarr[0]).slice(1, )),
+                        // "lat": parseFloat(String(strarr[1])),
+                        // "count": parseInt(String(strarr[2]).substr(0, String(strarr[2]).length - 1))
+                        "lng": parseFloat(String(strarr[0])),
                         "lat": parseFloat(String(strarr[1])),
-                        "count": parseInt(String(strarr[2]).substr(0, String(strarr[2]).length - 1))
+                        "count": parseInt(String(strarr[2]))
                     });
                 }
             }
@@ -91,21 +95,24 @@ function F_Reader(val) {
 
 //本地数据可视化
 function LocalFileVisual(val) {
+    ClearMap();
     switch (val) {
         case "轨迹图":
             var path = F_Reader(val);
+            confirm("确定展示轨迹图？")
             draw_Trajectory2(path);
             break;
 
         case "分布图":
             var districts = F_Reader(val);
+            confirm("确定展示分布图？")
             draw_PointMap(districts);
             break;
 
         case "热力图":
             var heatmapData = F_Reader(val);
             console.log(heatmapData)
-            alert("确定展示热力图？")
+            confirm("确定展示热力图？")
             draw_HeatMap(heatmapData);
             break;
     }

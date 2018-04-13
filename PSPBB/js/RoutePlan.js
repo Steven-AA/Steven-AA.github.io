@@ -1,7 +1,7 @@
 function TurnToSelect() {
     ClearMap();
     // document.getElementById("Route_planning").hidden = true
-    $("#route_input").css("display","inline-block");
+    $("#route_input").css("display", "inline-block");
 
     var auto_1 = new AMap.Autocomplete({
         input: "start"
@@ -27,36 +27,36 @@ function TurnToSelect() {
 
 function route_choose(value) {
     ClearMap();
-    $("#route_input").css("display","inline-block");
-    $("#panel").css("display","inline-block");
+    $("#route_input").css("display", "inline-block");
+    document.getElementById("routes-container").hidden = true
+    document.getElementById("panel").hidden = false
 
-    var val=value;
+    var val = value;
     // var obj = document.getElementById('Route_Choose');
     // var index = obj.selectedIndex; //序号，取当前选中选项的序号
     // var val = obj.options[index].value;
 
-    var start=$("#start").val();
-    var dest=$("#dest").val();
-    var start_city=null;
-    var dest_city=null;
-    if(start!=""&&dest!="")
-    {
+    var start = $("#start").val();
+    var dest = $("#dest").val();
+    var start_city = null;
+    var dest_city = null;
+    if (start != "" && dest != "") {
         AMap.service('AMap.Geocoder', function () {//回调函数
             //实例化Geocoder
             geocoder = new AMap.Geocoder({
                 city: "010"//城市，默认：“全国”
             });
-            geocoder.getLocation(start, function(status, result) {
+            geocoder.getLocation(start, function (status, result) {
                 if (status === 'complete' && result.info === 'OK') {
-                    start_city=result.geocoder.city;
-                }else{
+                    start_city = result.geocoder.city;
+                } else {
 
                 }
             });
-            geocoder.getLocation(dest, function(status, result) {
+            geocoder.getLocation(dest, function (status, result) {
                 if (status === 'complete' && result.info === 'OK') {
-                    dest_city=result.geocoder.city;
-                }else{
+                    dest_city = result.geocoder.city;
+                } else {
 
                 }
             });
@@ -65,7 +65,7 @@ function route_choose(value) {
 
         switch (val) {
             case "驾车":
-                var driving= new AMap.Driving({
+                var driving = new AMap.Driving({
                     map: map,
                     panel: "panel"
                 });
@@ -87,7 +87,7 @@ function route_choose(value) {
             case "步行":
                 var walking = new AMap.Walking({
                     map: map,
-                    panel:"panel"
+                    panel: "panel"
                 });
                 walking.search([
                     { keyword: start, city: start_city },
@@ -106,5 +106,4 @@ function route_choose(value) {
             //     break;
         }
     }
-
 }

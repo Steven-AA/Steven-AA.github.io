@@ -1,6 +1,7 @@
 // 天气预报
 function weather() {
     ClearMap();
+    document.getElementById("tip").hidden = false
     AMap.service('AMap.Weather', function () {
         var weather = new AMap.Weather();
         //查询实时天气信息, 查询的城市到行政级别的城市，如朝阳区、杭州市
@@ -32,7 +33,7 @@ function weather() {
             var str = [];
             for (var i = 0, dayWeather; i < data.forecasts.length; i++) {
                 dayWeather = data.forecasts[i];
-                str.push(dayWeather.date + ' <div class="weather">' + dayWeather.dayWeather + '</div> ' + dayWeather.nightTemp + '~' + dayWeather.dayTemp + '℃');
+                str.push(dayWeather.date + ' <div id="weather">' + dayWeather.dayWeather + '</div> ' + dayWeather.nightTemp + '~' + dayWeather.dayTemp + '℃');
             }
             document.getElementById('tip').innerHTML = str.join('<br>');
         });
@@ -89,8 +90,7 @@ function adddata() {
     }
     Trajectory.push(
         {
-            name: starttime.substr(5, ) + '-' + endtime.substr(5, ),
-            // name: "path",
+            name: code + ' ' + starttime.substr(5, ) + '-' + endtime.substr(5, ),
             path: path_
         });
     alert("添加数据成功")
@@ -108,7 +108,8 @@ function draw_Trajectory() {
 function draw_Trajectory1() {
     ClearMap();
     //创建地图
-    document.getElementById("panel").display = "inline"
+    document.getElementById("panel").hidden = false
+    document.getElementById("routes-container").hidden = false
     AMapUI.load(['ui/misc/PathSimplifier', 'lib/$'], function (PathSimplifier, $) {
         if (!PathSimplifier.supportCanvas) {
             alert('当前环境不支持 Canvas！');
@@ -342,11 +343,11 @@ function draw_Trajectory2(path_) {
 //清理地图
 function ClearMap() {
     map.clearMap();
+    document.getElementById("panel").hidden = true
+    document.getElementById("tip").hidden = true
     if (window.pathSimplifierIns != null) {
         window.pathSimplifierIns.setData();
     }
-    // $("#panel").css("display", "none");
-    // $("#route_input").css("display", "none");
-    // $("#map_choose").css("display", "none");
+
 }
 

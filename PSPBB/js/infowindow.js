@@ -12,6 +12,9 @@ function info(code, pos) {
             longitude = parseFloat(strarr[0])
             latitude = parseFloat(strarr[1])
             ms = msg
+        },
+        error: function (data) {
+            alert("数据库访问失败，可查看演示视频了解详细效果。");
         }
     });
     AMapUI.loadUI(['overlay/SimpleInfoWindow'], function (SimpleInfoWindow) {
@@ -36,8 +39,7 @@ function info(code, pos) {
                         infoBody: '<p><strong>地址:</strong>' + result.regeocode.formattedAddress + '</p>' +
                             '<p><strong>定位:</strong>' + longitude + ' E,' + latitude + ' N' + '</p>' +
                             '<p><strong>海拔:</strong>' + ms["altitude"] + 'm' + '</p>' +
-                            '<p><strong>时间:</strong>' + ms["LocalTime"] + '</p>' +
-                            '<p><strong>时长:</strong>test</p>' +
+                            '<p><strong>时间:</strong>' + ms["Local_Time"] + '</p>' +
                             '<p><strong>工作卫星个数:</strong>' + ms["num_sats"] + '</p>' +
                             '<p><strong>信号质量:</strong>' + ms["gps_qual"] + '</p>' +
                             '<p><strong>系统误差:</strong>' + ms["horizontal_dil"] + '</p>',

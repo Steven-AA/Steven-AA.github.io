@@ -29,7 +29,9 @@ function draw_polygon() {
                 e.target.editor.open();
             }, 0);
             contextMenu.addItem("结束编辑", function () {
+                var temp = confirm("确定是这个围栏？")
                 e.target.editor.close();
+                alert("地理围栏创建成功")
             }, 1);
             contextMenu.addItem("删除", function () {
                 e.target.editor.close();
@@ -39,7 +41,6 @@ function draw_polygon() {
         });
         map.setFitView();
         polygons.push(polygon);
-        var temp = confirm("确定是这个围栏？")
         if (temp) {
             // new_fencing(arr)
         } else {
@@ -79,6 +80,9 @@ function new_fencing(arr) {
         success: function (msg) {
             msg = eval(msg)
             console.log(msg)
+        },
+        error: function (data) {
+            alert("数据库访问失败，可查看演示视频了解详细效果。");
         }
     });
 }
@@ -86,7 +90,7 @@ function new_fencing(arr) {
 
 function check_polygon() {
     ClearMap()
-    var dots = ["118.926792,32.122329", "118.934087,32.11455", "118.930697,32.106771"]
+    var dots = ["118.785428,31.986246", "118.782896,31.986919", "118.784419,31.989831"]
     show_enclosure();
     for (i = 0; i < dots.length; i++) {
         Isin_fencing(dots[i])
@@ -106,16 +110,19 @@ function Isin_fencing(location) {
             msg = eval(msg)
             if (msg.errmsg == 'OK') {
                 if (msg.data.fencing_event_list.length == 0) {
-                    console.log("out")
+                    // console.log("out")
                     status = "out"
                 } else if (msg.data.fencing_event_list[0].client_status == 'in') {
-                    console.log("in" + msg.data.fencing_event_list[0].enter_time)
+                    // console.log("in" + msg.data.fencing_event_list[0].enter_time)
                     status = "in"
                 }
                 new_marker(status, location)
             } else {
                 alert("系统错误")
             }
+        },
+        error: function (data) {
+            alert("数据库访问失败，可查看演示视频了解详细效果。");
         }
     });
 }
@@ -178,7 +185,7 @@ function sleep(numberMillis) {
 
 function show_enclosure() {
     //围栏数据
-    var str = "118.933052,32.121796;118.924069,32.117479;118.928014,32.110847;118.927468,32.104473;118.936147,32.106632;118.934812,32.111516;118.935904,32.117016";
+    var str = "118.782529, 31.982936; 118.787582, 31.985011; 118.788956, 31.986658; 118.788054, 31.98795; 118.787175, 31.988869; 118.78431, 31.988741; 118.781306, 31.988641;118.781381, 31.98704";
     var array = str.split(";");
     var array3 = [];
     for (var i = 0; i < array.length; i++) {

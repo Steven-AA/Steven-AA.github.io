@@ -7,8 +7,8 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     <title>定位服务平台</title>
     <!-- css -->
-    <!-- <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
 
     <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css" />
     <link rel="stylesheet" href="css/index.css" />
@@ -57,57 +57,6 @@
 
         <!--主要内容-->
         <div id="main">
-            <!--左侧菜单-->
-            <!--<div id='menu2'>-->
-            <!--<table>-->
-            <!--<tr>-->
-            <!--<td class='menu_item'>-->
-            <!--<input class='menu_button' type="button" onclick="pos_q()" value="位置查询">-->
-            <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <!--<td class='menu_item'>-->
-            <!--<input class='menu_button' type="button" onclick="draw_Trajectory()" value="轨迹查询">-->
-            <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <!--<td class='menu_item'>-->
-            <!--<input class='menu_button' type="button" onclick="draw_polygon()" id="drploy" value="地理围栏">-->
-            <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <!--<td class='menu_item'>-->
-            <!--<input class='menu_button' type="button" onclick="TurnToSelect()" id="Route_planning" value="路线规划">-->
-            <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <!--<td class='menu_item'>-->
-            <!--<input class='menu_button' type="button" onclick="weather()" id="weather_forecast" value="天气查询">-->
-            <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <!--<td class='menu_item'>-->
-            <!--</td>-->
-            <!--<input class='menu_button' type="button" onclick="check_polygon()"  value="设置地理围栏">--
-                    <!--</tr>-->
-            <!--<tr>-->
-            <!--<td class='menu_item'>-->
-            <!--<input class='menu_button' type="button" onclick="check_polygon()" value="查看地理围栏">-->
-            <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <!--<td class='menu_item'>-->
-            <!--<input class='menu_button' type="button" onclick="F_Open_dialog()" id="F_Open_dialog" value="上传本地数据">-->
-            <!--<input type="file" id="btn_file" onchange="F_Reader()" accept=".csv" style="display:none">-->
-            <!--</td>-->
-            <!--</tr>-->
-            <!--&lt;!&ndash; <tr>-->
-            <!--<td class='menu_item'>-->
-            <!--<input class='menu_button' type="button" onclick="VisialDemo()" id="Visial_Demo" value="可视化">-->
-            <!--</td>-->
-            <!--</tr> &ndash;&gt;-->
-            <!--</table>-->
-            <!--</div>-->
             <div id="menu">
                 <ul id="ul">
                     <li class="has-children">
@@ -160,7 +109,7 @@
                                                     <input class='menu_button' type="button" onclick="draw_Trajectory1()" value="提交">
                                                 </td>
                                                 <td>
-                                                    <input class='menu_button' type="button" onclick="adddata()" value="继续添加数据">
+                                                    <input class='menu_button' type="button" onclick="adddata()" value="添加数据">
                                                 </td>
                                             </tr>
                                     </table>
@@ -284,7 +233,7 @@
     var map = new AMap.Map('container', {
         resizeEnable: true,
         zoom: 15,
-        center: [118.931142, 32.113595]
+        center: [118.784444, 31.984321]
     });
 
     //右键菜单

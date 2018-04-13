@@ -85,7 +85,7 @@ body {
     width: 150px;
 }
 
-.weather {
+#weather {
     width: 100px;
     padding-left: 8px;
     display: inline-block;
