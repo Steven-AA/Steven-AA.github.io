@@ -2,166 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-    <title>基本地图展示</title>
-    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css" />
-    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
-    <script src="http://webapi.amap.com/maps?v=1.4.4&key=e60ff7dcf6ec5d7b1c14b4f68f2f2be6&plugin=AMap.Autocomplete&plugin=AMap.Walking"></script>
-    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
-    <!-- <script src="//webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script> -->
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="icon" href="./img/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/login.css" />
 </head>
 
 <body>
-    <table>
-        <tr>
-            <div id='header'>
-                PSPBB
+    <div id="login_frame">
+        <p>
+            <img src="./img/logo.png" id="image_logo">
+        </p>
+        <form method="post" action="login.js">
+            <p>
+                <label class="label_input">用户名</label>
+                <input type="text" id="username" class="text_field" />
+            </p>
+            <p>
+                <label class="label_input">密码</label>
+                <input type="password" id="password" class="text_field" />
+            </p>
+            <div id="login_control">
+                <input type="button" id="btn_login" value="登录" onclick="login();" />
             </div>
-        </tr>
-        <tr>
-            <td>
-                <div id='menu'>
-                    <table>
-                        <tr>
-                            <td class='menu_item'>
-                                <input class='menu_button' type="button" onclick="pos_q()" value="位置查询">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class='menu_item'>
-                                轨迹查询
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </td>
-            <td>
-                <div id="container"></div>
-                <div id="myPageTop">
-                    <table>
-                        <tr>
-                            <td>
-                                <label>按关键字搜索：</label>
-                            </td>
-                            <td class="column2">
-                                <label>左击获取经纬度：</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="text" placeholder="请输入关键字进行搜索" id="tipinput">
-                            </td>
-                            <td class="column2">
-                                <input type="text" readonly="true" id="lnglat">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <script>
-                    var map = new AMap.Map('container', {
-                        resizeEnable: true,
-                        zoom: 15,
-                        center: [118.931142, 32.113595]
-                    });
-                    var clickEventListener = map.on('click', function (e) {
-                        document.getElementById("lnglat").value = e.lnglat.getLng() + ',' + e.lnglat.getLat()
-                    });
-                    var auto = new AMap.Autocomplete({
-                        input: "tipinput"
-                    });
-                    AMap.event.addListener(auto, "select", select);
-                    function select(e) {
-                        if (e.poi && e.poi.location) {
-                            map.setZoom(15);
-                            map.setCenter(e.poi.location);
-                        }
-                    };
-                    function addMarker(pos) {
-                        marker = new AMap.Marker({
-                            icon: "http://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
-                            position: pos
-                        });
-                        marker.setMap(map);
-                    };
-                    function pos_q() {
-                        var code = prompt("请输入设备编号", "BD00001")
-                        if (code != null && code != "") {
-                            addMarker([118.933134, 32.11091])
-                        }
-                    };
-                    // var walking = new AMap.Walking({
-                    //     map: map,
-                    // });
-                    // //根据起终点坐标规划步行路线
-                    // walking.search([118.927437, 32.119242], [118.9313, 32.105411]);
-                </script>
-            </td>
-        </tr>
-    </table>
+        </form>
+    </div>
+    <script>
+        function login() {
+            var username = document.getElementById("username");
+            var pass = document.getElementById("password");
+            if (username.value == "") {
+                alert("请输入用户名");
+            } else if (pass.value == "") {
+                alert("请输入密码");
+            } else if (username.value == "admin" && pass.value == "123456") {
+                window.location.href = "main.html";
+            } else {
+                alert("请输入正确的用户名和密码！")
+            }
+        }  
+    </script>
 </body>
-<style>
-    td {
-        text-align: center;
-    }
-
-    body {
-        background-color: gray;
-    }
-
-    #header {
-        background-color: black;
-        color: white;
-        text-align: center;
-        font-size: 30px;
-        z-index: 10;
-        height: 40px;
-    }
-
-    #myPageTop {
-        margin: 40px 0px 0px 0px;
-    }
-
-    #container {
-        margin: 40px 0% 0% 10%;
-        width: 90%;
-        height: 95%;
-        z-index: 0;
-    }
-
-    #menu {
-        margin: 0% 0% 0% 0%;
-        width: 200px;
-    }
-
-    .menu_item {
-        height: 40px;
-        color: white;
-        font-size: 20px;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    .menu_button {
-        background-color: rgba(255, 255, 255, 0);
-        border: none;
-        height: 40px;
-        color: white;
-        font-size: 20px;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    .marker {
-        color: #ff6600;
-        padding: 4px 10px;
-        border: 1px solid #fff;
-        white-space: nowrap;
-        font-size: 12px;
-        font-family: "";
-        background-color: #0066ff;
-    }
-</style>
 
 </html>

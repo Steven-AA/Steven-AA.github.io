@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>定位服务平台</title>
+    <!-- css -->
+    <!-- <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="icon" href="./img/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/menu.css" />
+
+
+
+    <!-- java script -->
+    <script src="http://a.amap.com/Loca/static/dist/jquery.min.js"></script>
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+    <script src="http://webapi.amap.com/maps?v=1.4.4&key=e60ff7dcf6ec5d7b1c14b4f68f2f2be6&plugin=AMap.Autocomplete&plugin=AMap.Walking&plugin=AMap.Riding&plugin=AMap.Driving&plugin=AMap.MouseTool&plugin=AMap.PolyEditor,AMap.CircleEditor&plugin=AMap.LngLat"></script>
+    <script src="http://webapi.amap.com/loca?key=e60ff7dcf6ec5d7b1c14b4f68f2f2be6"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script src="https://webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+
+    <script type="text/javascript" src="js/enclosure.js"></script>
+    <script type="text/javascript" src="js/infowindow.js"></script>
+    <script type="text/javascript" src="js/DataManager.js"></script>
+    <script type="text/javascript" src="js/func.js"></script>
+    <script type="text/javascript" src="js/RoutePlan.js"></script>
+    <script type="text/javascript" src="js/LocalFileVisual.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+
+
+
+    <!--<script type="text/javascript" src="js/bootstrap.js"></script>-->
+    <!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+
+
+
+
+
+</head>
+
+<body>
+    <div>
+        <!--标题-->
+        <div id="header">定位服务平台</div>
+
+        <!--主要内容-->
+        <div id="main">
+            <!--左侧菜单-->
+            <!--<div id='menu2'>-->
+            <!--<table>-->
+            <!--<tr>-->
+            <!--<td class='menu_item'>-->
+            <!--<input class='menu_button' type="button" onclick="pos_q()" value="位置查询">-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td class='menu_item'>-->
+            <!--<input class='menu_button' type="button" onclick="draw_Trajectory()" value="轨迹查询">-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td class='menu_item'>-->
+            <!--<input class='menu_button' type="button" onclick="draw_polygon()" id="drploy" value="地理围栏">-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td class='menu_item'>-->
+            <!--<input class='menu_button' type="button" onclick="TurnToSelect()" id="Route_planning" value="路线规划">-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td class='menu_item'>-->
+            <!--<input class='menu_button' type="button" onclick="weather()" id="weather_forecast" value="天气查询">-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td class='menu_item'>-->
+            <!--</td>-->
+            <!--<input class='menu_button' type="button" onclick="check_polygon()"  value="设置地理围栏">--
+                    <!--</tr>-->
+            <!--<tr>-->
+            <!--<td class='menu_item'>-->
+            <!--<input class='menu_button' type="button" onclick="check_polygon()" value="查看地理围栏">-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--<td class='menu_item'>-->
+            <!--<input class='menu_button' type="button" onclick="F_Open_dialog()" id="F_Open_dialog" value="上传本地数据">-->
+            <!--<input type="file" id="btn_file" onchange="F_Reader()" accept=".csv" style="display:none">-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--&lt;!&ndash; <tr>-->
+            <!--<td class='menu_item'>-->
+            <!--<input class='menu_button' type="button" onclick="VisialDemo()" id="Visial_Demo" value="可视化">-->
+            <!--</td>-->
+            <!--</tr> &ndash;&gt;-->
+            <!--</table>-->
+            <!--</div>-->
+            <div id="menu">
+                <ul id="ul">
+                    <li class="has-children">
+                        <a>位置查询</a>
+                        <ul class="children">
+                            <li>
+                                <div style="background: white">
+                                    <label>设备编号：</label>
+                                    <input size="16" type="text" value="BD00001" id="code">
+                                    <input class='menu_button' type="button" onclick="pos_q()" value="提交">
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <a href="#">轨迹查询</a>
+                        <ul class="children">
+                            <li>
+                                <div id="track_input" style="background: white">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label>设备编号：</label>
+                                            </td>
+                                            <td>
+                                                <input size="16" type="text" value="BD00001" id="code2" class="form_datetime">
+                                            </td>
+                                            <tr/>
+                                            <tr>
+                                                <td>
+                                                    <label>开始时间：</label>
+                                                </td>
+                                                <td>
+                                                    <input size="16" type="text" id="starttime" class="form_datetime">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>结束时间：</label>
+                                                </td>
+                                                <td>
+                                                    <input size="16" type="text" value="2018-02-18 13:59" id="endtime" class="form_datetime">
+                                                </td>
+                                            </tr>
+                                            <script>
+                                                // $(".form_datetime").datetimepicker({ format: 'yyyy-mm-dd hh:ii' });
+                                            </script>
+                                            <tr>
+                                                <td>
+                                                    <input class='menu_button' type="button" onclick="draw_Trajectory1()" value="提交">
+                                                </td>
+                                                <td>
+                                                    <input class='menu_button' type="button" onclick="adddata()" value="继续添加数据">
+                                                </td>
+                                            </tr>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <a href="#">地理围栏</a>
+                        <ul class="children">
+                            <li>
+                                <input class='menu_button' type="button" onclick="draw_polygon()" id="drploy" value="设置地理围栏" />
+                            </li>
+                            <li>
+                                <input class='menu_button' type="button" onclick="check_polygon()" value="查看地理围栏">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <a href="#">路线规划</a>
+                        <ul class="children">
+                            <li>
+                                <div id="route_input">
+                                    <div>
+                                        <input class='route_button' type="button" onclick="route_choose(this.value)" value="驾车">
+                                        <input class='route_button' type="button" onclick="route_choose(this.value)" value="步行">
+                                        <input class='route_button' type="button" onclick="route_choose(this.value)" value="骑行">
+                                    </div>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label>起点：</label>
+                                            </td>
+                                            <td>
+                                                <input type="text" placeholder="请输入关键字进行搜索" id="start">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>终点：</label>
+                                            </td>
+                                            <td>
+                                                <input type="text" placeholder="请输入关键字进行搜索" id="dest">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <a href="#">天气查询</a>
+                        <ul class="children">
+                            <li>
+                                <input class='menu_button' type="button" onclick="weather()" id="weather_forecast" value="天气查询">
+                            </li>
+                            <!--<li>-->
+                            <!--<a href="#">Child Link #1</a>-->
+                            <!--</li>-->
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <a href="#">上传本地数据</a>
+                        <ul class="children">
+                            <li>
+                                <div id="map_choose">
+                                    <input type="file" id="btn_file" onchange="F_Reader()" accept=".csv">
+                                    <input class='map_button' type="button" onclick="LocalFileVisual(this.value)" value="轨迹图">
+                                    <input class='map_button' type="button" onclick="LocalFileVisual(this.value)" value="分布图">
+                                    <input class='map_button' type="button" onclick="LocalFileVisual(this.value)" value="热力图">
+                                    <!--<select id="Route_Choose" onchange="route_choose()">-->
+                                    <!--<option value="car">驾车路线</option>-->
+                                    <!--<option value="bike">骑行路线</option>-->
+                                    <!--<option value="walk">步行路线</option>-->
+                                    <!--</select>-->
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--右侧窗口-->
+            <div id="window">
+
+                <!--地图-->
+                <div id="container"></div>
+
+                <!--控件-->
+                <div id="tip"></div>
+                <div id="panel">
+                    <div id="routes-container"></div>
+                </div>
+                <div id="myPageTop">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>按关键字搜索：</label>
+                            </td>
+                            <td class="column2">
+                                <label>左击获取经纬度：</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="请输入关键字进行搜索" id="tipinput">
+                            </td>
+                            <td class="column2">
+                                <input type="text" readonly="true" id="lnglat">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    settime()
+    // 创建地图
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        zoom: 15,
+        center: [118.931142, 32.113595]
+    });
+
+    //右键菜单
+    var menu = new ContextMenu(map);
+    function ContextMenu(map) {
+        var me = this;
+        this.mouseTool = new AMap.MouseTool(map); //地图中添加鼠标工具MouseTool插件
+        this.contextMenuPositon = null;
+        var content = [];
+        content.push("<div>");
+        content.push("    <ul class='context_menu'>");
+        content.push("        <li onclick='menu.zoomMenu(0)'>缩小</li>");
+        content.push("        <li class='split_line' onclick='menu.zoomMenu(1)'>放大</li>");
+        content.push("        <li class='split_line' onclick='menu.distanceMeasureMenu()'>距离量测</li>");
+        content.push("        <li onclick='menu.addMarkerMenu()'>添加标记</li>");
+        content.push("    </ul>");
+        content.push("</div>");
+        this.contextMenu = new AMap.ContextMenu({ isCustom: true, content: content.join('') });//通过content自定义右键菜单内容
+        //地图绑定鼠标右击事件——弹出右键菜单
+        map.on('rightclick', function (e) {
+            me.contextMenu.open(map, e.lnglat);
+            me.contextMenuPositon = e.lnglat; //右键菜单位置
+        });
+    }
+
+    ContextMenu.prototype.zoomMenu = function zoomMenu(tag) {//右键菜单缩放地图
+        if (tag === 0) {
+            map.zoomOut();
+        }
+        if (tag === 1) {
+            map.zoomIn();
+        }
+        this.contextMenu.close();
+    }
+    ContextMenu.prototype.distanceMeasureMenu = function () {  //右键菜单距离量测
+        this.mouseTool.rule();
+        this.contextMenu.close();
+    }
+    ContextMenu.prototype.addMarkerMenu = function () {  //右键菜单添加Marker标记
+        this.mouseTool.close();
+        var marker = new AMap.Marker({
+            map: map,
+            position: this.contextMenuPositon //基点位置
+        });
+        this.contextMenu.close();
+    }
+
+    var clickEventListener = map.on('click', function (e) {
+        document.getElementById("lnglat").value = e.lnglat.getLng() + ',' + e.lnglat.getLat()
+        if (enclosure) {
+            var marker = new AMap.Marker({
+                icon: "http://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
+                position: [e.lnglat.getLng(), e.lnglat.getLat()]
+            });
+            arr.push([e.lnglat.getLng(), e.lnglat.getLat()]);
+            marker.setMap(map);
+            markers.push(marker)
+        }
+    });
+
+
+    var auto = new AMap.Autocomplete({
+        input: "tipinput"
+    });
+    AMap.event.addListener(auto, "select", select);
+    function select(e) {
+        if (e.poi && e.poi.location) {
+            map.setZoom(15);
+            map.setCenter(e.poi.location);
+        }
+    };
+
+</script>
+
+</html>
